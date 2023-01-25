@@ -57,11 +57,12 @@ const createAuthor = async (entry) => {
 
 //UPDATE
 const updateAuthor = async (updateAuthor, email) => {
-    const { name, surname, NewEmail, image } = updateAuthor;
+    const { name, surname, newEmail, image } = updateAuthor;
     let client, result;
+    console.log(updateAuthor);
     try {
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(queries.updateAuthor, [name, surname, NewEmail, image, email]);
+        const data = await client.query(queries.updateAuthor, [name, surname, newEmail, image, email]);
         result = data.rows
     } catch (err) {
         console.log(err);
