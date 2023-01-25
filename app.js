@@ -1,5 +1,6 @@
 const express = require('express')
 const cowsay = require('cowsay')
+const morgan = require('morgan');
 
 const error404 = require('./middlewares/error404')
 
@@ -9,6 +10,7 @@ const authorsApiRoutes = require('./routes/authorsApiRoutes')
 
 const app = express()
 const port = 3000
+app.use(morgan("dev"));
 
 // Template engine
 app.set('view engine', 'pug');
